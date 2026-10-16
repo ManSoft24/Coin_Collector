@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
+using NUnit.Framework;
+
 
 public class ItemSlot : MonoBehaviour
 {
@@ -13,14 +14,32 @@ public class ItemSlot : MonoBehaviour
 
     [SerializeField] private TMP_Text quantityText;
     [SerializeField] private Image itemImage;
+    [SerializeField] private int MaxStackSize = 99;
 
     public void AddItem(ItemDetails itemDetails)
     {
         itemName = itemDetails.ItemName;
-        quantity = itemDetails.Quantity;
+        // quantity = itemDetails.Quantity;
         itemIcon = itemDetails.ItemIcon;
-        isFull = true;
+        AddQuantity(itemDetails.Quantity);
+        // isFull = true;
 
+
+        // quantityText.text = quantity.ToString();
+        // quantityText.enabled = true;
+        // itemImage.sprite = itemIcon;
+
+    }
+
+    public bool CanStackWith(string otherItemName)
+    {
+        return !isFull && itemName == otherItemName;
+    }
+
+    public void AddQuantity(int amount)
+    {
+        quantity += amount;
+        isFull = quantity >= MaxStackSize;
 
         quantityText.text = quantity.ToString();
         quantityText.enabled = true;

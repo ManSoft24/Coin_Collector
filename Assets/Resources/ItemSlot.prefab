@@ -307,11 +307,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   itemDescription: 
-  quantity: 1
+  quantity: 0
   itemIcon: {fileID: 0}
   isFull: 0
   quantityText: {fileID: 8329996243108791704}
   itemImage: {fileID: 3567821823013862058}
+  MaxStackSize: 99
 --- !u!1 &3227313816242175594
 GameObject:
   m_ObjectHideFlags: 0

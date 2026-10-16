@@ -62,13 +62,23 @@ public class InventoryManager : MonoBehaviour, GrabableItem
         }
 
         for (int i = 0; i < itemSlot.Length; i++)
-        {  
+        {
+            if (itemSlot[i].CanStackWith(item.ItemName))
+            {
+                itemSlot[i].AddQuantity(item.Quantity);
+                return;
+            }
+        }
+
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
             if (!itemSlot[i].isFull)
             {
                 itemSlot[i].AddItem(item);
                 return;
             }
         }
+
 
         Debug.LogWarning("Inventory is full, '" + item.ItemName + "' was lost.");
 
