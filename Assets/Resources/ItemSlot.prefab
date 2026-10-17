@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5520167775034382093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -313,6 +313,8 @@ MonoBehaviour:
   quantityText: {fileID: 8329996243108791704}
   itemImage: {fileID: 3567821823013862058}
   MaxStackSize: 99
+  selectedPanel: {fileID: 1040276564593817289}
+  isItemSelected: 0
 --- !u!1 &3227313816242175594
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using NUnit.Framework;
+using UnityEngine.EventSystems;
 
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     public string itemName;
     public string itemDescription;
@@ -15,6 +15,16 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private TMP_Text quantityText;
     [SerializeField] private Image itemImage;
     [SerializeField] private int MaxStackSize = 99;
+
+    //selected item
+    [SerializeField] public GameObject selectedPanel;
+    public bool isItemSelected;
+    public InventoryManager inventoryManager;
+
+    public void Start()
+    {
+        inventoryManager = FindAnyObjectByType<InventoryManager>();
+    }
 
     public void AddItem(ItemDetails itemDetails)
     {
@@ -45,5 +55,33 @@ public class ItemSlot : MonoBehaviour
         quantityText.enabled = true;
         itemImage.sprite = itemIcon;
 
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            LeftClick();
+        }
+    
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            RightClick();
+        }
+    }
+
+    public void LeftClick()
+    {
+        Debug.Log("Left click, ditekan");
+        inventoryManager.DisselectAllSlot();
+
+        selectedPanel.SetActive(true);
+        isItemSelected = true;
+    }
+
+    public void RightClick()
+    {
+        Debug.Log("Right click, ditekan");
+        
     }
 }

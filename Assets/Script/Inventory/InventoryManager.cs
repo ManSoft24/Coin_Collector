@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour, GrabableItem
@@ -106,6 +107,15 @@ public class InventoryManager : MonoBehaviour, GrabableItem
         for (int i = 0; i < itemSlot.Length; i++)
         {
             itemSlot[i] = Instantiate(slotPrefab, parent);
+        }
+    }
+
+    public void DisselectAllSlot()
+    {
+        foreach (ItemSlot slot in itemSlot)
+        {
+            slot.isItemSelected = false;
+            slot.selectedPanel.SetActive(false);
         }
     }
 
