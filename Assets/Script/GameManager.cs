@@ -1,15 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public int totalKoin;
-
     public int koinTerkumpul;
 
     public GameObject WinCanvas;
 
-    [SerializeField] private int totalNyawa = 100;
     private int jumlahZombieMati = 0;
+
+    public TextMeshProUGUI loseText;
 
 
 
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         koinTerkumpul = FindFirstObjectByType<ScoreManager>().score;
+
+
          
         if (koinTerkumpul == totalKoin)
         {
@@ -52,6 +55,15 @@ public class GameManager : MonoBehaviour
     {
 
         WinCanvas.SetActive(true);
+        Debug.Log("Kamu Menang!");
+        Time.timeScale = 0f;
+    }
+    
+    public void Kalah()
+    {
+
+        WinCanvas.SetActive(true);
+        loseText.text = "You Lose";
         Debug.Log("Kamu Menang!");
         Time.timeScale = 0f;
     }

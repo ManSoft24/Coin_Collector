@@ -4,12 +4,12 @@ using UnityEngine;
 public class ItemDetails : ScriptableObject
 {
     [SerializeField] private string itemName;
-    [SerializeField] private string itemDescription;
     [SerializeField] private int quantity = 1;
     [SerializeField] private Sprite itemIcon;
+    [SerializeField, TextArea] private string description;
 
     public string ItemName => itemName;
-    public string ItemDescription => itemDescription;
     public int Quantity => quantity;
     public Sprite ItemIcon => itemIcon;
+    public string Description => description;
 }

@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private float jedaSerang = 1f; // detik antar serang
     [SerializeField] private float radiusPatrol = 3f;
     [SerializeField] public int damageSaatTabrakan = 20;
-    [SerializeField] public int hp = 100;
+    [SerializeField] public int hp = 20;
 
 
 

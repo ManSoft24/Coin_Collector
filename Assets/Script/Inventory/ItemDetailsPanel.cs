@@ -4,12 +4,12 @@ using TMPro;
 
 public class ItemDetailsPanel : MonoBehaviour
 {
-   [SerializeField] private Image itemImage;
-   [SerializeField] private TMP_Text itemNameText;
-   [SerializeField] private TMP_Text itemQuantityText;
-   [SerializeField] private TMP_Text itemDescriptionText;
+    [SerializeField] private Image itemImage;
+    [SerializeField] private TMP_Text itemNameText;
+    [SerializeField] private TMP_Text itemQuantityText;
+    [SerializeField] private TMP_Text itemDescriptionText;
 
-   public void Show(ItemDetails item, int quantity)
+    public void Show(ItemDetails item, int quantity)
     {
         if (item == null)
         {
@@ -21,7 +21,7 @@ public class ItemDetailsPanel : MonoBehaviour
         itemImage.enabled = true;
         itemNameText.text = item.ItemName;
         itemQuantityText.text = "Quantity: " + quantity;
-        itemDescriptionText.text = item.ItemDescription;
+        itemDescriptionText.text = item.Description;
     }
 
     public void Clear()

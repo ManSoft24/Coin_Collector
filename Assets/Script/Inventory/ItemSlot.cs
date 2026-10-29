@@ -21,25 +21,24 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public bool isItemSelected;
     public InventoryManager inventoryManager;
 
+    public ItemDetails ItemDetails => itemDetails;
+    private ItemDetails itemDetails;
+
+
     public void Start()
     {
         inventoryManager = FindAnyObjectByType<InventoryManager>();
     }
 
-    public void AddItem(ItemDetails itemDetails)
+    public void AddItem(ItemDetails item)
     {
-        itemName = itemDetails.ItemName;
-        // quantity = itemDetails.Quantity;
-        itemIcon = itemDetails.ItemIcon;
-        AddQuantity(itemDetails.Quantity);
-        // isFull = true;
-
-
-        // quantityText.text = quantity.ToString();
-        // quantityText.enabled = true;
-        // itemImage.sprite = itemIcon;
+        itemDetails = item;
+        itemName = item.ItemName;
+        itemIcon = item.ItemIcon;
+        AddQuantity(item.Quantity);
 
     }
+
 
     public bool CanStackWith(string otherItemName)
     {
@@ -72,11 +71,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     public void LeftClick()
     {
-        Debug.Log("Left click, ditekan");
-        inventoryManager.DisselectAllSlot();
-
-        selectedPanel.SetActive(true);
-        isItemSelected = true;
+        if (IsEmpty || inventoryManager == null)
+        {
+            return;
+        }
+        inventoryManager.SelectSlot(this);
     }
 
     public void RightClick()
@@ -84,4 +83,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         Debug.Log("Right click, ditekan");
         
     }
+    public bool IsEmpty => quantity <= 0;
 }
+    

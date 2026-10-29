@@ -315,6 +315,7 @@ MonoBehaviour:
   MaxStackSize: 99
   selectedPanel: {fileID: 1040276564593817289}
   isItemSelected: 0
+  inventoryManager: {fileID: 0}
 --- !u!1 &3227313816242175594
 GameObject:
   m_ObjectHideFlags: 0

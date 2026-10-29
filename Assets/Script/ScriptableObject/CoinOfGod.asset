@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: CoinOfGod
   m_EditorClassIdentifier: 
   itemName: Coin of God
-  itemDescription: Sebuah mata uang dunia dewa
   quantity: 1
-  itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemIcon: {fileID: -7814240041180328124, guid: 24e104b99eebd544493c6326faca2c58, type: 3}
+  description: 'The Divine Currency of Ancient Greece
+
+    According to legend, the
+    forebears of Zeus hurled a bolt of divine lightning into a gold mine on the slopes
+    of Mount Olympus. This celestial impact imbued the ore with a unique, radiant
+    stigma. Mortals later adopted this glowing gold as a sacred currency, utilizing
+    its unearthly luminescence as a natural and infallible seal of authenticity.'
